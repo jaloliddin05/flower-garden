@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ScheduleModule } from '@nestjs/schedule';
 import { CategoryModule } from './modules/category/category.module';
+import { ProductModule } from './modules/product/product.module';
 
 import configuration from './config';
 @Module({
@@ -20,6 +21,7 @@ import configuration from './config';
       inject: [ConfigService],
     }),
     CategoryModule,
+    ProductModule,
   ],
 })
 export class AppModule {}
