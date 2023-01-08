@@ -2,10 +2,12 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ScheduleModule } from '@nestjs/schedule';
-import { CategoryModule } from './modules/category/category.module';
-import { ProductModule } from './modules/product/product.module';
 
 import configuration from './config';
+import { CategoryModule } from './modules/category/category.module';
+import { ProductModule } from './modules/product/product.module';
+import { FileModule } from './modules/file/file.module';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -22,6 +24,7 @@ import configuration from './config';
     }),
     CategoryModule,
     ProductModule,
+    FileModule,
   ],
 })
 export class AppModule {}
