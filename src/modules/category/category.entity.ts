@@ -5,6 +5,7 @@ import {
   BaseEntity,
   OneToMany,
 } from 'typeorm';
+import { LanguageDto } from '../../infra/shared/dto';
 
 @Entity({ name: 'category' })
 export class Category extends BaseEntity {
@@ -12,9 +13,5 @@ export class Category extends BaseEntity {
   id: string;
 
   @Column('simple-json')
-  title: {
-    uz: string;
-    ru: string;
-    en: string;
-  };
+  title: LanguageDto;
 }
