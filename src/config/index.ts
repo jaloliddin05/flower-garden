@@ -8,14 +8,14 @@ export default (): IConfig => ({
   port: parseInt(process.env.PORT, 10) || 8000,
 
   database: {
-    host: process.env.DB_HOST,
+    //host: process.env.DB_HOST,
     type: process.env.DB_TYPE,
     name: 'default',
-    port: parseInt(process.env.DB_PORT, 10) || 5432,
-    username: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-
+    //port: parseInt(process.env.DB_PORT, 10) || 5432,
+    //username: process.env.DB_USERNAME,
+    //password: process.env.DB_PASSWORD,
+    //database: process.env.DB_NAME,
+    url: process.env.ELEPHANT_SQL_URL,
     //remove after adding migrations
     synchronize: true,
 

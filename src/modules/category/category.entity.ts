@@ -6,6 +6,7 @@ import {
   OneToMany,
 } from 'typeorm';
 import { LanguageDto } from '../../infra/shared/dto';
+import { Product } from '../product/product.entity';
 
 @Entity({ name: 'category' })
 export class Category extends BaseEntity {
@@ -14,4 +15,7 @@ export class Category extends BaseEntity {
 
   @Column('simple-json')
   title: LanguageDto;
+
+  @OneToMany(()=>Product, product=>product.category)
+  products:Product[]
 }

@@ -60,7 +60,7 @@ export class CategoryController {
   })
   @ApiForbiddenResponse({ description: 'Unauthorized Request' })
   @HttpCode(HttpStatus.CREATED)
-  async register(@Body() categoryData: CreateCategory) {
+  async create(@Body() categoryData: CreateCategory) {
     try {
       return await this.categoryService.create(categoryData);
     } catch (err) {
