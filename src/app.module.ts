@@ -7,6 +7,7 @@ import configuration from './config';
 import { CategoryModule } from './modules/category/category.module';
 import { ProductModule } from './modules/product/product.module';
 import { FileModule } from './modules/file/file.module';
+import { ProductTagModule } from './modules/product-tag/product-tag.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { FileModule } from './modules/file/file.module';
     CategoryModule,
     ProductModule,
     FileModule,
+    ProductTagModule,
   ],
 })
 export class AppModule {}
