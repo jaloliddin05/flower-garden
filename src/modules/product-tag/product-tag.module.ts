@@ -10,5 +10,6 @@ import { ProductTagRepository } from './product-tag.repository';
   imports: [TypeOrmModule.forFeature([ProductTag])],
   controllers: [ProductTagController],
   providers: [ProductTagService, ProductTagRepository],
+  exports: [ProductTagService, ProductTagRepository],
 })
 export class ProductTagModule {}

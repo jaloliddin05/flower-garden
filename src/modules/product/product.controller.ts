@@ -19,7 +19,11 @@ import {
   ApiOperation,
 } from '@nestjs/swagger';
 
-import { CreateProductDto, UpdateProductDto } from './dto';
+import {
+  CreateProductDto,
+  ProductTagProductDto,
+  UpdateProductDto,
+} from './dto';
 import { ProductService } from './product.service';
 
 @ApiTags('Product')
@@ -60,9 +64,24 @@ export class ProductController {
   })
   @ApiForbiddenResponse({ description: 'Unauthorized Request' })
   @HttpCode(HttpStatus.CREATED)
-  async register(@Body() productData: CreateProductDto) {
+  async create(@Body() productData: CreateProductDto) {
     try {
       return await this.productService.create(productData);
+    } catch (err) {
+      throw new HttpException(err.message, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+  }
+
+  @Post('/product-tag-product')
+  @ApiOperation({ summary: 'Method: adds tag to product' })
+  @ApiCreatedResponse({
+    description: 'The tag was applied to product successfully',
+  })
+  @ApiForbiddenResponse({ description: 'Unauthorized Request' })
+  @HttpCode(HttpStatus.CREATED)
+  async addTagToProduct(@Body() data: ProductTagProductDto) {
+    try {
+      return await this.productService.addTagToProduct(data);
     } catch (err) {
       throw new HttpException(err.message, HttpStatus.INTERNAL_SERVER_ERROR);
     }
@@ -96,6 +115,21 @@ export class ProductController {
   async deleteData(@Param('id') id: string) {
     try {
       return await this.productService.delete(id);
+    } catch (err) {
+      throw new HttpException(err.message, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+  }
+
+  @Delete('/delete/tag')
+  @ApiOperation({ summary: 'Method: deleting tag from product' })
+  @ApiOkResponse({
+    description: 'Product tag was deleted',
+  })
+  @ApiForbiddenResponse({ description: 'Unauthorized Request' })
+  @HttpCode(HttpStatus.NO_CONTENT)
+  async deleteTag(@Body() data: ProductTagProductDto) {
+    try {
+      return await this.productService.removeTagFromProduct(data);
     } catch (err) {
       throw new HttpException(err.message, HttpStatus.INTERNAL_SERVER_ERROR);
     }
