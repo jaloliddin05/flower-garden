@@ -18,8 +18,9 @@ export class CategoryRepository {
 
   async getById(id: string): Promise<Category> {
     return this.categoryRepository
-      .createQueryBuilder()
-      .where('id = :id', { id })
+      .createQueryBuilder('category')
+      .where('category.id = :id', { id })
+      .leftJoinAndSelect('category.products', 'product')
       .getOne();
   }
 
