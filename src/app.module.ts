@@ -8,6 +8,7 @@ import { CategoryModule } from './modules/category/category.module';
 import { ProductModule } from './modules/product/product.module';
 import { FileModule } from './modules/file/file.module';
 import { ProductTagModule } from './modules/product-tag/product-tag.module';
+import { SubCategoryModule } from './modules/sub-category/sub-category.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { ProductTagModule } from './modules/product-tag/product-tag.module';
     ProductModule,
     FileModule,
     ProductTagModule,
+    SubCategoryModule,
   ],
 })
 export class AppModule {}

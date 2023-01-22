@@ -55,7 +55,7 @@ class UpdateProductDto {
   })
   @IsOptional()
   @IsString()
-  category: string;
+  subCategory: string;
 }
 
 export default UpdateProductDto;

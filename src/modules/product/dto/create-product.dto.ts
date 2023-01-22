@@ -55,7 +55,7 @@ class CreateProductDto {
   })
   @IsNotEmpty()
   @IsString()
-  category: string;
+  subCategory: string;
 }
 
 export default CreateProductDto;
