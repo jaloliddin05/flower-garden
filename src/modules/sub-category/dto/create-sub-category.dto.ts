@@ -7,8 +7,7 @@ class CreateSubCategory {
     description: 'Title',
     example: {
       uz: 'sport',
-      ru: 'спорт',
-      en: 'sport',
+      ru: 'спорт'
     },
   })
   @IsNotEmpty()
