@@ -8,7 +8,6 @@ class UpdateSubCategory {
     example: {
       uz: 'futbol',
       ru: 'футбол',
-      en: 'football',
     },
   })
   @IsOptional()

@@ -4,13 +4,13 @@ import { BadRequestException } from '@nestjs/common';
 import { Transform } from 'class-transformer';
 import { LanguageDto } from '../../../infra/shared/dto';
 
-function parseTextToObject(name: string, value?: string) {
-  const obj = value ? JSON.parse(value) : '';
-  if (!isObject(obj)) {
-    throw new BadRequestException(`${name} should be an object.`);
-  }
-  return obj;
-}
+// function parseTextToObject(name: string, value?: string) {
+//   const obj = value ? JSON.parse(value) : '';
+//   if (!isObject(obj)) {
+//     throw new BadRequestException(`${name} should be an object.`);
+//   }
+//   return obj;
+// }
 
 class CreateProductDto {
   @ApiProperty({
@@ -22,9 +22,9 @@ class CreateProductDto {
   })
   @IsNotEmpty()
   @IsObject()
-  @Transform(({ value }: { value: string }) =>
-    parseTextToObject('title', value),
-  )
+  // @Transform(({ value }: { value: string }) =>
+  //   parseTextToObject('title', value),
+  // )
   readonly title: LanguageDto;
 
   @ApiProperty({
@@ -44,9 +44,9 @@ class CreateProductDto {
   })
   @IsNotEmpty()
   @IsObject()
-  @Transform(({ value }: { value: string }) =>
-    parseTextToObject('about', value),
-  )
+  // @Transform(({ value }: { value: string }) =>
+  //   parseTextToObject('about', value),
+  // )
   readonly about: LanguageDto;
 
   @ApiProperty({
